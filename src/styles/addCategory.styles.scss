@@ -1,0 +1,25 @@
+// addCategory.styles.scss
+
+.container {
+  max-width: 400px;
+  margin: 50px auto; /* Similar margin as checkout-page */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.label {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}

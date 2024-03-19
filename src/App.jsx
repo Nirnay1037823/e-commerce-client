@@ -7,6 +7,10 @@ import SignInPage from "./pages/SignInPage";
 import Shop from "./pages/Shop";
 import Contact from "./pages/Contact";
 import Checkout from "./pages/Checkout";
+import AddProduct from "./pages/AddProduct";
+import AddCategory from "./pages/AddCategory";
+import ViewCategories from "./pages/ViewCategories";
+import ViewProducts from "./pages/ViewProducts";
 
 function App() {
   return (
@@ -20,6 +24,10 @@ function App() {
           <Route path="/category/:id" element={<Category />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/add-category" element={<AddCategory />} />
+          <Route path="/view-categories" element={<ViewCategories />} />
+          <Route path="/view-products" element={<ViewProducts />} />
         </Routes>
       </div>
     </>

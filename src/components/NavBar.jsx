@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/navbar.styles.scss";
 import CartIcon from "./CartIcon";
@@ -57,6 +58,12 @@ const NavBar = () => {
           )}
           <Link className="option" to="/contact">
             CONTACT
+          </Link>
+          <Link className="option" to="/view-products">
+            PRODUCT
+          </Link>
+          <Link className="option" to="/view-categories">
+            CATEGORY
           </Link>
           <CartIcon />
         </div>
