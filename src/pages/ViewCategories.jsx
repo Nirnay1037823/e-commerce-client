@@ -1,12 +1,13 @@
 // ViewCategories.jsx
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'; // Import Link
-import apiClient from '../helpers/apiClient';
-import '../styles/viewCategories.styles.scss';
-import Button from '../components/Button';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom"; // Import Link
+import apiClient from "../helpers/apiClient";
+import "../styles/viewCategories.styles.scss";
+import Button from "../components/Button";
 
 const ViewCategories = () => {
   const [categories, setCategories] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCategories();
@@ -14,10 +15,10 @@ const ViewCategories = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await apiClient.get('/api/v1/category/get-all');
+      const response = await apiClient.get("/api/v1/category/get-all");
       setCategories(response.data);
     } catch (error) {
-      console.error('Error fetching categories: ', error);
+      console.error("Error fetching categories: ", error);
     }
   };
 
@@ -25,17 +26,20 @@ const ViewCategories = () => {
     try {
       await apiClient.post(`/api/v1/category/delete/${categoryId}`);
       // Remove the deleted category from the state
-      setCategories(categories.filter(category => category.id !== categoryId));
+      setCategories(
+        categories.filter((category) => category.id !== categoryId)
+      );
     } catch (error) {
-      console.error('Error deleting category: ', error);
+      console.error("Error deleting category: ", error);
     }
   };
 
-  const handleUpdateCategory = (category) => {
-    // Create a URL with query params containing the category data
-    const url = `/add-category?name=${category.name}&description=${category.description}`;
-    // Navigate to the URL
-    window.location.href = url;
+  const handleUpdateCategory = (categoryId) => {
+    navigate(`/update-category/${categoryId}`);
+  };
+
+  const handleLinkProduct = (categoryId) => {
+    navigate(`/link-product/${categoryId}`);
   };
 
   return (
@@ -59,12 +63,15 @@ const ViewCategories = () => {
             <tr key={category.id}>
               <td>{category.name}</td>
               <td>{category.description}</td>
-              <td>
+              <td style={{ display: "flex", justifyContent: "space-between" }}>
                 <Button onClick={() => handleDeleteCategory(category.id)}>
                   Delete
                 </Button>
-                <Button onClick={() => handleUpdateCategory(category)}>
+                <Button onClick={() => handleUpdateCategory(category.id)}>
                   Update
+                </Button>
+                <Button onClick={() => handleLinkProduct(category.id)}>
+                  Link Product
                 </Button>
               </td>
             </tr>

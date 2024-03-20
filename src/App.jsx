@@ -11,6 +11,8 @@ import AddProduct from "./pages/AddProduct";
 import AddCategory from "./pages/AddCategory";
 import ViewCategories from "./pages/ViewCategories";
 import ViewProducts from "./pages/ViewProducts";
+import LinkProduct from "./pages/LinkProduct";
+import UpdateCategory from "./pages/UpdateCategory";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="/add-category" element={<AddCategory />} />
           <Route path="/view-categories" element={<ViewCategories />} />
           <Route path="/view-products" element={<ViewProducts />} />
+          <Route path="/link-product/:id" element={<LinkProduct />} />
+          <Route path="/update-category/:id" element={<UpdateCategory />} />
         </Routes>
       </div>
     </>

@@ -1,11 +1,7 @@
-// AddCategory.jsx
-import React, { useState, useEffect } from "react";
-import apiClient from "../helpers/apiClient";
-import "../styles/addCategory.styles.scss";
-import Button from "../components/Button";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
-const AddCategory = () => {
+const UpdateCategory = () => {
   const [categoryName, setCategoryName] = useState("");
   const [categoryDescription, setCategoryDescription] = useState("");
   const { categoryId } = useParams();
@@ -79,4 +75,4 @@ const AddCategory = () => {
   );
 };
 
-export default AddCategory;
+export default UpdateCategory;
